@@ -40,7 +40,7 @@ public class CanalClient {
     //指定要监听的ip地址的canal端口号，默认开启为11111
     public void run() {
         CanalConnector connector = CanalConnectors.newSingleConnector(new
-                InetSocketAddress("192.16879.129",
+                InetSocketAddress("192.168.79.129",
                 11111), "example", "", "");
         int batchSize = 1000;
         try {

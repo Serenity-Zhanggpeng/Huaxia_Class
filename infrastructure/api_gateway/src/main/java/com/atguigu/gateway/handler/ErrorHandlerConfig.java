@@ -23,7 +23,7 @@ import java.util.List;
  * @author yinjihuan
  *
  */
-@Configuration
+@Configuration  //表明该类为一个配置类  作用类似配置文件一样
 @EnableConfigurationProperties({ServerProperties.class, ResourceProperties.class})
 public class ErrorHandlerConfig {
 
@@ -49,7 +49,7 @@ public class ErrorHandlerConfig {
         this.serverCodecConfigurer = serverCodecConfigurer;
     }
 
-    @Bean
+    @Bean       //交给spring管理
     @Order(Ordered.HIGHEST_PRECEDENCE)  //highest_precedence precedence=priority
     public ErrorWebExceptionHandler errorWebExceptionHandler(ErrorAttributes errorAttributes) {
         JsonExceptionHandler exceptionHandler = new JsonExceptionHandler(
