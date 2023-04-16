@@ -20,12 +20,12 @@ public class CodeGenerator {
     @Test
     public void run() {
 
-        // 1、创建代码生成器
+        // 1、创建代码生成器      在Maven: com.baomidou:mybatis-plus-generator:3.0.5
         AutoGenerator mpg = new AutoGenerator();
 
         // 2、全局配置
         GlobalConfig gc = new GlobalConfig();
-        String projectPath = System.getProperty("user.dir");
+        String projectPath = System.getProperty("user.dir"); //?
         gc.setOutputDir("D:\\idea\\workspace\\guli_parent\\service\\service-edu" + "/src/main/java");//生成路径
 
         gc.setAuthor("张鹏");  //设置作者
@@ -33,13 +33,13 @@ public class CodeGenerator {
         gc.setFileOverride(false); //重新生成时文件是否覆盖
 
         //UserServie
-        gc.setServiceName("%sService");	//去掉UserServie接口的首字母I
+        gc.setServiceName("%sService");	//去掉UserServie接口的首字母I  不然会生成会带上I
 
         gc.setIdType(IdType.ID_WORKER_STR); //主键策略
         gc.setDateType(DateType.ONLY_DATE);//定义生成的实体类中日期类型
         gc.setSwagger2(true);//开启Swagger2模式
 
-        mpg.setGlobalConfig(gc);
+        mpg.setGlobalConfig(gc); //将全局配置对象设置到代码生成器对象中
 
         // 3、数据源配置          数据库的信息需要单独配置  不能用到配置文件信息 需要这里单独配置
         DataSourceConfig dsc = new DataSourceConfig();
@@ -48,6 +48,7 @@ public class CodeGenerator {
         dsc.setUsername("root");
         dsc.setPassword("hsp");
         dsc.setDbType(DbType.MYSQL);
+
         mpg.setDataSource(dsc);
 
         // 4、包配置
@@ -61,6 +62,7 @@ public class CodeGenerator {
         pc.setEntity("entity");
         pc.setService("service");
         pc.setMapper("mapper");
+
         mpg.setPackageInfo(pc);
 
         // 5、策略配置  逆向工程 代码生成器 会根据表把mapper(数据库的表)把实体类自动创建出来

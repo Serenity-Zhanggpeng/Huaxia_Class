@@ -107,7 +107,7 @@ public class EduTeacherController {
     }
 */
 
-    //4 条件查询带分页的方法
+    //4 条件查询带分页的方法 当前页  限制每页显示条目数
     @PostMapping("pageTeacherCondition/{current}/{limit}")
     public R pageTeacherCondition(@PathVariable long current,@PathVariable long limit,
                                   @RequestBody(required = false) TeacherQuery teacherQuery) {

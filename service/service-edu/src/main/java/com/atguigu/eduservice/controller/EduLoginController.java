@@ -26,8 +26,8 @@ public class EduLoginController {
     //登陆之后获取用户信息的方法i
     @GetMapping("/info")                   //这里不是post请求   改为psost看看报什么错
     public R info() {
-        return R.ok().data("roles","[admin]").data("name","admin")
-                .data("avatar","https://img2.woyaogexing.com/2022/07/17/5156a4e99d7385df!400x400.jpg");
+        return R.ok().data("roles","[管理员]").data("name","管理员")
+                .data("avatar","\thttps://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80");
        //登陆之后的图像
 
     }

@@ -1,5 +1,4 @@
 package com.atguigu.educms.service.impl;
-
 import com.atguigu.educms.entity.CrmBanner;
 import com.atguigu.educms.mapper.CrmBannerMapper;
 import com.atguigu.educms.service.CrmBannerService;
@@ -16,22 +15,22 @@ import java.util.List;
  * </p>
  *
  * @author testjava
- * @since 2020-03-07
+ * @since 2020-10-24
  */
 @Service
 public class CrmBannerServiceImpl extends ServiceImpl<CrmBannerMapper, CrmBanner> implements CrmBannerService {
 
-    //查询所有banner
-   // @Cacheable(value = "banner",key = "'selectIndexList'")
+    /**
+     * 查询所有轮播图，并存入缓存中做为热数据
+     * @return
+     */
+    @Cacheable(value = "banner",key = "'selectIndexList'")//存放在缓存中
     @Override
-    public List<CrmBanner> selectAllBanner() {
-
-        //根据id进行降序排列，显示排列之后前两条记录
-        QueryWrapper<CrmBanner> wrapper = new QueryWrapper<>();
-        wrapper.orderByDesc("id");
-        //last方法，拼接sql语句
-        wrapper.last("limit 2");
-        List<CrmBanner> list = baseMapper.selectList(null);
+    public List<CrmBanner> selectBanner() {
+        //根据id进行降序排序，显示排列后前两条记录
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.orderByAsc("sort");
+        List<CrmBanner> list = baseMapper.selectList(wrapper);
         return list;
     }
 }

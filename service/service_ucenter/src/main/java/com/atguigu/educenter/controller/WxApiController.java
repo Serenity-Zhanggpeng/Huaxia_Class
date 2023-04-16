@@ -108,14 +108,12 @@ public class WxApiController {
                 "&scope=snsapi_login" +
                 "&state=%s" +
                 "#wechat_redirect";
-
         //对redirect_url进行URLEncoder编码
         String redirectUrl = ConstantWxUtils.WX_OPEN_REDIRECT_URL;
         try {
             redirectUrl = URLEncoder.encode(redirectUrl, "utf-8");
         }catch(Exception e) {
         }
-
         //设置%s里面值
         String url = String.format(
                     baseUrl,
@@ -123,7 +121,6 @@ public class WxApiController {
                     redirectUrl,
                     "atguigu"
                  );
-
         //重定向到请求微信地址里面
         return "redirect:"+url;
     }

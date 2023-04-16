@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>service_cms</artifactId>
+    <description>轮播图模块</description>
+
 
 
 </project>

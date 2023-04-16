@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @date: 2022/7/15 16:21
  */
 @Configuration
-@EnableSwagger2   //swagger注解
+@EnableSwagger2   //swagger注解      先需要引入maven坐标
 public class SwaggerConfig {
     @Bean
     public Docket webApiConfig() {

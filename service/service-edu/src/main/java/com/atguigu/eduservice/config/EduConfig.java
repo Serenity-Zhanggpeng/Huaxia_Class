@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author:张鹏
- * @description: 配置类都写在这
+ * @description: 配置类都写在这      全局配置类
  * @date: 2022/7/15 14:04
  */
 

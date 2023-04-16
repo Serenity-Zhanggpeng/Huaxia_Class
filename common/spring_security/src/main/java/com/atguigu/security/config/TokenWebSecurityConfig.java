@@ -30,10 +30,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class TokenWebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService userDetailsService;
-    private TokenManager tokenManager;
-    private DefaultPasswordEncoder defaultPasswordEncoder;
-    private RedisTemplate redisTemplate;
+
+    private UserDetailsService userDetailsService; //自定义查询数据库的‘类’ 查询用户权限的
+    private TokenManager tokenManager;   //生成token的工具类
+    private DefaultPasswordEncoder defaultPasswordEncoder; //密码处理
+    private RedisTemplate redisTemplate;                  //将用户信息为key 权限为value缓存到redis
 
     @Autowired
     public TokenWebSecurityConfig(UserDetailsService userDetailsService, DefaultPasswordEncoder defaultPasswordEncoder,
